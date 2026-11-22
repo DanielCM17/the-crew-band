@@ -10,6 +10,15 @@ h2 {
     display: block;
 }
 
+.about{
+    background-color: white;
+}
+
+.container {
+    padding: 2rem;
+
+}
+
 .flex {
   display: flex;
   flex-direction: column;
@@ -51,7 +60,6 @@ h2 {
 }
 
 .services {
-    padding: 2rem;
     background-color: #f4f4f4;
 }
 
