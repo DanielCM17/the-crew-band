@@ -2,6 +2,12 @@
   --primary-accent:#180747;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -9,7 +15,7 @@ body {
 
 h2 {
     color: var(--primary-accent);
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
 }
 
 .about{
@@ -69,7 +75,7 @@ h2 {
     background-color: var(--primary-accent);
     color: #fff;
     text-align: center;
-    padding: 2rem 0;
+    padding: 2rem 1.25rem;
 }
 
 .hero {
@@ -80,21 +86,24 @@ h2 {
     url("assets/images/hero.webp");
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 2rem 1.25rem;
 }
 
 .hero h1 {
     color: #fff;
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    margin: 0 0 1rem;
     text-align: center;
 }
 
 
 .hero p {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
     text-align: center;
-    margin-top: 1rem;
+    margin: 0 0 1.5rem;
     max-width: 600px;
 }
 
@@ -104,8 +113,8 @@ h2 {
 
 .service-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 1.25rem;
 }
 
 .service-card {
@@ -117,6 +126,10 @@ h2 {
 
 .service-card img {
     width: 100%;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
 }
 
 .service-card h3 {
@@ -145,7 +158,45 @@ h2 {
         max-width: none;
     }
 
+    .about-paragraph {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .about-image {
+        height: auto;
+        max-height: none;
+        aspect-ratio: 4 / 3;
+    }
+
     .container {
         padding: 2rem 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero {
+        padding-inline: 1rem;
+    }
+
+    .cta-button {
+        padding: 0.875rem 1.25rem;
+        text-align: center;
+    }
+
+    .service-card {
+        padding: 0.875rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .footer {
+        font-size: 0.9rem;
     }
 }
